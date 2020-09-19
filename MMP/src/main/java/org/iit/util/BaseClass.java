@@ -23,9 +23,9 @@ public class BaseClass {
 
 		}
 	//Commenting After Test
-     //@AfterTest
-     //public void closeBrowser(){
-     //	driver.close();
+    //@AfterTest
+    //public void closeBrowser(){
+    //	driver.close();
 	//}
 		
 		
