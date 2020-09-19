@@ -22,11 +22,11 @@ public class BaseClass {
 			driver = new ChromeDriver();
 
 		}
-	//Commenitng After Test
-               //@AfterTest
-		//public void closeBrowser(){
-		//	driver.close();
-		//}
+	//Commenting After Test
+     //@AfterTest
+     //public void closeBrowser(){
+     //	driver.close();
+	//}
 		
 		
 		
