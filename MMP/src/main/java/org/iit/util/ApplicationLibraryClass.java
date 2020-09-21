@@ -5,6 +5,10 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileReader;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.Random;
 
 import org.apache.poi.hssf.usermodel.HSSFRow;
 import org.apache.poi.hssf.usermodel.HSSFSheet;
@@ -15,6 +19,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.Test;
 
 public class ApplicationLibraryClass {
 	
@@ -107,6 +112,37 @@ public class ApplicationLibraryClass {
 
 	}
 	
+	//Method- to get past Date
+	
+	public static String pastDate(){
+		Random random = new Random();
+		
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, -(random.nextInt(100)));
+		cal.add(Calendar.MONTH, -2);
+		cal.add(Calendar.YEAR,-1);
+		Date d= cal.getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
+		String pastDate= sdf.format(d);
+		return pastDate;
+		
+		
+	}
+	
+	public static String futureDate(){
+		Random random = new Random();
+		
+		Calendar cal = Calendar.getInstance();
+		cal.add(Calendar.DATE, random.nextInt(100));
+		cal.add(Calendar.MONTH, 2);
+		cal.add(Calendar.YEAR,1);
+		Date d= cal.getTime();
+		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
+		String pastDate= sdf.format(d);
+		return pastDate;
+		
+		
+	}
 	
 }
 	
