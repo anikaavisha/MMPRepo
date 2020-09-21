@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose ="5" >
+  <test name="Test">
+  <parameter name = "url"  value="http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php"> </parameter>
+  <parameter name = "adminUsername"  value="Thomas_444" > </parameter>
+  <parameter name = "adminPwd"  value="Edison_444" > </parameter>
+  <parameter name = "adminModule"  value="Users" > </parameter>
+  <parameter name = "patientRegStatus"  value="Accepted" > </parameter>
+  <classes>
+  <class name = "org.iit.mmp.adminmodule.tests.RegistrationStatus"> 
+  <methods> 
+  <include name ="acceptedRegistrationVerification"/> 
+  </methods>
+  </class>
+  </classes>
+  </test>
+  <test name="Test1">
+  <parameter name = "url"  value="http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php"> </parameter>
+  <parameter name = "adminUsername"  value="Thomas_444" > </parameter>
+  <parameter name = "adminPwd"  value="Edison_444" > </parameter>
+  <parameter name = "adminModule"  value="Users" > </parameter>
+  <parameter name = "patientRegStatus"  value="Rejected" > </parameter>
+  <classes>
+  <class name = "org.iit.mmp.adminmodule.tests.RegistrationStatus"> 
+  <methods> 
+  <include name = "rejectedRegistrationVerification" />
+  </methods>
+  </class>
+  </classes>
+  </test>
+  <test name="Test2">
+  <parameter name = "url"  value="http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php"> </parameter>
+  <parameter name = "adminUsername"  value="Thomas_444" > </parameter>
+  <parameter name = "adminPwd"  value="Edison_444" > </parameter>
+  <parameter name = "adminModule"  value="Users" > </parameter>
+  <parameter name = "patientRegStatus"  value="Pending" > </parameter>
+  <classes>
+  <class name = "org.iit.mmp.adminmodule.tests.RegistrationStatus"> 
+  <methods> 
+  <include name = "pendingRegistrationVerification" />
+  </methods>
+  </class>
+  </classes>
+  </test>
+  
+  </suite> <!-- Suite -->
