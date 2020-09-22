@@ -9,6 +9,8 @@ public class LogOutPage {
 	public WebDriver driver;
 	String logoutTab = "//span[contains(text(),'%module%')]";
 	
+	//Logout Constructor
+	
 	public LogOutPage(WebDriver driver){
 		this.driver = driver;
 		
@@ -16,6 +18,7 @@ public class LogOutPage {
 	
 	public boolean Verifylogout(String expectedTitle) throws InterruptedException{
 		String actualTitle= driver.getTitle();
+		System.out.println(actualTitle);
 		Assert.assertEquals(actualTitle, expectedTitle);
 		return true;
 		
