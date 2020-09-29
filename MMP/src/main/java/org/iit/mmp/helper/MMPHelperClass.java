@@ -45,18 +45,24 @@ public class MMPHelperClass {
 		elementFound.click();
 
 	}
-	public void waitingForElementToBeVisible(By locator ,String value){
-	WebDriverWait wait = new WebDriverWait(driver,100);
-	WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-	element.sendKeys(value);
-		
-		
-		
+	public WebElement waitingForElementToBeVisible(By locator){
+	WebDriverWait wait = new WebDriverWait(driver,200);
+	//wait until element is visible
+	WebElement webelement= wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	//System.out.println(webelement.isDisplayed());
+	return webelement;
+	
+	
 	}
+
+		
+		
+		
+	
 	
 	public void navigateToModuleWithWait(String module) {
 		String moduleXpath = moduleName.replace("%module%", module);
-		WebDriverWait wait = new WebDriverWait(driver, 100);
+		WebDriverWait wait = new WebDriverWait(driver, 10000);
 		WebElement elementFound = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(moduleXpath))));
 		elementFound.click();
 

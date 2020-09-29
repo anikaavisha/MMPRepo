@@ -3,11 +3,14 @@ package org.iit.mmp.adminmodule.pages;
 
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.iit.mmp.helper.MMPHelperClass;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
@@ -40,13 +43,12 @@ public class UsersPage {
 	
 	//Method to login into admin module . In this we are not passing url.
 	
-	public boolean adminLogin(String uName,String pwd) throws InterruptedException{
+	public boolean adminLogin(String aUname,String aPwd) throws InterruptedException{
 		MMPHelperClass mp = new MMPHelperClass(driver);
 		mp.waitingForElmentToBeClicked(driver.findElement(adminLoginButtonXpath));
-		//mp.waitingForElementToBeVisible(usernameID, uName);
 		Thread.sleep(10000);
-		driver.findElement(usernameID).sendKeys(uName);
-		driver.findElement(passwordID).sendKeys(pwd);
+        driver.findElement(usernameID).sendKeys(aUname);
+		driver.findElement(passwordID).sendKeys(aPwd);
 		driver.findElement(signInButtonName).click();
 		return true;
 		
@@ -91,6 +93,13 @@ public class UsersPage {
 		alert.accept();
 		return true;
 		}
+
+	public boolean adminUrl(String url){
+	driver.get(url);
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	return true;
+	}
 		
 //	public boolean rejectedAlertVerification(){
 //		Alert alert = driver.switchTo().alert();

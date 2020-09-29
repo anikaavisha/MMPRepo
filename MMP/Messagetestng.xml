@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite">
+  <test name="Test">
+  <parameter name = "pUname" value = "ria1"></parameter>
+  <parameter name ="pPwd" value="Ria12345"></parameter>
+  <parameter name = "pUrl" value = "http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php"></parameter>
+  <parameter name = "contactReason"  value ="Appointmnet1"></parameter>
+  <parameter name ="message" value = "Please book Appt with Dr. smith"></parameter>
+  <parameter name ="aUname" value="Thomas_444"></parameter>
+  <parameter name = "aPwd" value = "Edison_444"></parameter>
+  <classes>
+  <class name = "org.iit.mmp.adminmodule.tests.MessageVerification"/>
+  </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->

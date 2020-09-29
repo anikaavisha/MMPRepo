@@ -70,7 +70,7 @@ public class SubmitAClaimPage {
 	    select3.selectByVisibleText(insuranceCompany);
 	    driver.findElement(checkboxID).click();
 	    driver.findElement(submitClaimXpath).click();
-	    String text = driver.findElement(By.xpath("//br[2]")).getText();
+	    String text = driver.findElement(By.xpath("(//br)[1]/following-sibling::br")).getText();
 	    System.out.println(text);
 	    return true;
 		

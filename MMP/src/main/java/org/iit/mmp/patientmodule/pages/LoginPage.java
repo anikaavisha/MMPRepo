@@ -47,7 +47,8 @@ public class LoginPage {
 		Alert alert = driver.switchTo().alert();
         String actualMessage = alert.getText();
         String expectedMessage = "Your Account Has Been Rejected!. ";
-        Assert.assertEquals(actualMessage, expectedMessage);
+        Assert.assertEquals(actualMessage.trim(), expectedMessage.trim());
+        alert.accept();
         return true;
 		
 		
@@ -63,7 +64,8 @@ public class LoginPage {
 		Alert alert = driver.switchTo().alert();
         String actualMessage = alert.getText();
         String expectedMessage = "Admin Approval is pending. ";
-        Assert.assertEquals(actualMessage, expectedMessage);
+        Assert.assertEquals(actualMessage.trim(), expectedMessage.trim());
+        alert.accept();
         return true;
 		
 		

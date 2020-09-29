@@ -20,7 +20,7 @@ public class MessageValidationPatient extends BaseClass{
     MMPHelperClass p = new MMPHelperClass(driver);
     MessagesPage mp = new MessagesPage(driver);
     //logging into application
-	p.patientLogin("ria1", "Ria12345","http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+	p.patientLogin("XTESTX4912", "XTest!123456","http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
 	//Navigate to Messages
 	p.navigateToModule("Messages");
 	//Fill Contact Info and Message and Send

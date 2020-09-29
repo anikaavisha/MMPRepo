@@ -16,13 +16,9 @@ import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Test;
 
 public class ApplicationLibraryClass {
-	
+
 	// Method - Reading Excel with xls extension
 	public String[][] readingXlsFile(String xlsFilePath) throws IOException {
 		File file = new File(xlsFilePath);
@@ -70,8 +66,8 @@ public class ApplicationLibraryClass {
 		return Data;
 
 	}
-	
-	//Method- Reading Text File
+
+	// Method- Reading Text File
 	public String readingTextFile(String filePath) {
 
 		FileReader fr = null;
@@ -111,41 +107,35 @@ public class ApplicationLibraryClass {
 		return txt;
 
 	}
-	
-	//Method- to get past Date
-	
-	public static String pastDate(){
+
+	// Method- to get past Date
+
+	public static String pastDate() {
 		Random random = new Random();
-		
+
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE, -(random.nextInt(100)));
 		cal.add(Calendar.MONTH, -2);
-		cal.add(Calendar.YEAR,-1);
-		Date d= cal.getTime();
+		cal.add(Calendar.YEAR, -1);
+		Date d = cal.getTime();
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
-		String pastDate= sdf.format(d);
+		String pastDate = sdf.format(d);
 		return pastDate;
-		
-		
+
 	}
-	
-	public static String futureDate(){
+
+	public static String futureDate() {
 		Random random = new Random();
-		
+
 		Calendar cal = Calendar.getInstance();
 		cal.add(Calendar.DATE, random.nextInt(100));
 		cal.add(Calendar.MONTH, 2);
-		cal.add(Calendar.YEAR,1);
-		Date d= cal.getTime();
+		cal.add(Calendar.YEAR, 1);
+		Date d = cal.getTime();
 		SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/YYYY");
-		String pastDate= sdf.format(d);
+		String pastDate = sdf.format(d);
 		return pastDate;
-		
-		
+
 	}
-	
+
 }
-	
-	
-
-
