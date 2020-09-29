@@ -3,6 +3,8 @@ package org.iit.mmp.adminmodule.pages;
 
 
 
+import java.util.concurrent.TimeUnit;
+
 import org.iit.mmp.helper.MMPHelperClass;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -43,7 +45,7 @@ public class UsersPage {
 	public boolean adminLogin(String uName,String pwd) throws InterruptedException{
 		MMPHelperClass mp = new MMPHelperClass(driver);
 		mp.waitingForElmentToBeClicked(driver.findElement(adminLoginButtonXpath));
-		//mp.waitingForElementToBeVisible(usernameID, uName);
+		mp.waitingForElementToBeVisible(usernameID);
 		Thread.sleep(10000);
 		driver.findElement(usernameID).sendKeys(uName);
 		driver.findElement(passwordID).sendKeys(pwd);
@@ -91,6 +93,13 @@ public class UsersPage {
 		alert.accept();
 		return true;
 		}
+
+	public boolean adminUrl(String url){
+	driver.get(url);
+	driver.manage().window().maximize();
+	driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+	return true;
+	}
 		
 //	public boolean rejectedAlertVerification(){
 //		Alert alert = driver.switchTo().alert();

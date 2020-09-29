@@ -19,6 +19,7 @@ public class FeesPage {
 	By cardExpirationYearID= By.id("cardYear");
 	By codeID = By.id("cvv");
 	String feeTab = "//span[contains(text(),'%module%')]";
+	String feeRow ="//body//li[contains(text(),'%service% %aptDate%')]";
 
 
 	public FeesPage(WebDriver driver) {
@@ -56,7 +57,17 @@ public class FeesPage {
 
 	}
 
-	
+	public boolean feeRowVerify(String service, String aptDate){
+		String feeRowS = feeRow.replace("%service%",service);
+		String feeRowXpath = feeRowS.replace("%aptDate%",aptDate);
+		String actualFeeEntry = driver.findElement(By.xpath(feeRowXpath)).getText();
+		if (actualFeeEntry.contains(service)&& actualFeeEntry.contains(aptDate))
+			{
+			System.out.println(" Fee Entry Added in Patient Module");
+			return true;
+		}
+		return false;
+		}
 	
 
 }

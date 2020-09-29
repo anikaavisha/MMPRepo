@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Suite" verbose="5">
+	<test name="Test">
+		 
+			<parameter name="pUname" value ="ria1"></parameter>
+			<parameter name="pPwd" value= "Ria12345"></parameter>
+			<parameter name="pUrl"
+				value="http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php"></parameter>
+			<parameter name="aUname" value="Thomas_444"></parameter>
+			<parameter name="aPwd" value="Edison_444"></parameter>
+			<parameter name="aUrl" value="http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/"></parameter>
+			<parameter name="drName" value="Beth"></parameter>
+			<parameter name="modifierCode" value="400"></parameter>
+			<parameter name="icdCode" value="400"></parameter>
+			<parameter name="cptCode" value="402"></parameter>
+			<parameter name="insuranceCompany" value="Atena"></parameter>
+			<parameter name="ssn" value="230001345"></parameter>
+            <parameter name="apptDate" value="11/03/2019"></parameter>
+            <parameter name="service" value="blood work"></parameter>
+            <parameter name="fees" value="100"></parameter>
+            <parameter name = "contactReason"  value ="Appointmnet1"></parameter>
+            <parameter name ="message" value = "Please book Appt with Dr. smith"></parameter>
+            <parameter name = "presName" value="ThyroidPres"></parameter>
+            <parameter name = "presDes" value="Take twice in a day."></parameter>
+            <parameter name = "patientAcceptedRegStatus"  value="Accepted" > </parameter>
+            <parameter name = "patientRejectedRegStatus"  value="Rejected" > </parameter>
+            <parameter name = "patientPendingRegStatus"  value="Pending" > </parameter>
+             <parameter name ="time" value="10Am"></parameter>
+             <parameter name ="sym" value="Fever Test"></parameter>
+			
+			<classes>
+			<class name="org.iit.mmp.adminmodule.tests.FeeVerificationTest" />
+			<class name="org.iit.mmp.adminmodule.tests.ScheduleAppointmentByAdmin" />
+			<class name="org.iit.mmp.adminmodule.tests.ClaimCenterVerification" />
+			<class name="org.iit.mmp.adminmodule.tests.PrescriptionVerification" />
+			<class name="org.iit.mmp.adminmodule.tests.MessageVerification" />
+			<class name="org.iit.mmp.adminmodule.tests.RegistrationStatus" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->

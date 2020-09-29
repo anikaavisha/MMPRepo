@@ -22,7 +22,7 @@
         <configuration>
         <forkCount>0</forkCount>
           <suiteXmlFiles>
-            <suiteXmlFile>testng.xml</suiteXmlFile>
+            <suiteXmlFile>AdminModuletestng.xml</suiteXmlFile>
           </suiteXmlFiles>
         </configuration>
       </plugin>

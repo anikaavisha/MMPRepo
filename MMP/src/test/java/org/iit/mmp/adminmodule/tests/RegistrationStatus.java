@@ -10,13 +10,13 @@ import org.testng.asserts.SoftAssert;
 
 public class RegistrationStatus extends BaseClass {
 	
-	// Open application
+	// Login into  Patient Module
 	// Click on Register Button 
 	//Register New Patient by providing random data and Save
 	// Verify Registration is successful.We will be landed on Home page.
 	// Click Office Login and Login Button to get Admin Login Window
 	// Login into Admin Module .UN - Thomas_444 ,Pwd - Edisison_444
-	// Click on User Tab of Admin Module
+	// Click on Users Tab of Admin Module
 	// Select Patient by searching patient by patient name and ssn.And click on selected patient
 	// Change Status to accepted
 	// Click on Submit button
@@ -25,10 +25,10 @@ public class RegistrationStatus extends BaseClass {
 	// Verify new patient  could login,by verifying text which will be new patient username, which will be displyed on patient home page once patient logs in.
 
 	//Method - For Accepted Status
-	@Parameters({ "url", "adminUsername", "adminPwd", "adminModule", "patientRegStatus" })
+	@Parameters({ "pUrl", "aUname", "aPwd", "patientAcceptedRegStatus" })
 	@Test(description="Changing Stataus to Accepted")
-	public void acceptedRegistrationVerification(String url, String adminUsername, String adminPwd, String adminModule,
-			String patientRegStatus) throws InterruptedException {
+	public void acceptedRegistrationVerification(String pUrl, String aUname, String aPwd,String patientAcceptedRegStatus
+			) throws InterruptedException {
 
 		SoftAssert sa = new SoftAssert();
 		RegisterPage newPatient = new RegisterPage(driver);
@@ -36,7 +36,7 @@ public class RegistrationStatus extends BaseClass {
 		LoginPage pLogin = new LoginPage(driver);
 
 		// Open Application and click on RegisterButton
-		boolean result = newPatient.navigateToRegisterpage(url);
+		boolean result = newPatient.navigateToRegisterpage(pUrl);
 		sa.assertTrue(result);
 
 		// enter data on Register page and this method will return patient ssn ,Name, username,pwd
@@ -58,11 +58,11 @@ public class RegistrationStatus extends BaseClass {
 		sa.assertTrue(result1);
 
 		// logging into admin module
-		boolean result2 = patientStatus.adminLogin(adminUsername, adminPwd);
+		boolean result2 = patientStatus.adminLogin(aUname, aPwd);
 		sa.assertTrue(result2);
 
 		// navigate to Users tab of admin module
-		boolean result3 = patientStatus.navigateToAdminModule(adminModule);
+		boolean result3 = patientStatus.navigateToAdminModule("Users");
 		sa.assertTrue(result3);
 
 		// Select new patient by name and SSN
@@ -70,7 +70,7 @@ public class RegistrationStatus extends BaseClass {
 		sa.assertTrue(result4);
 
 		// Changing Status to Accepted
-		boolean result5 = patientStatus.patientStatusChange(patientRegStatus);
+		boolean result5 = patientStatus.patientStatusChange(patientAcceptedRegStatus);
 		sa.assertTrue(result5);
 
 		// Clicking on Submit button to save
@@ -82,24 +82,24 @@ public class RegistrationStatus extends BaseClass {
 		sa.assertTrue(result7);
 
 		// Verify New Patient could login successfully and verify Text on Patient login page
-		boolean result8 = pLogin.patientStatusApprovedLoginVerification(url, patientUserName, patientPwd);
+		boolean result8 = pLogin.patientStatusApprovedLoginVerification(pUrl, patientUserName, patientPwd);
 		sa.assertTrue(result8);
 		sa.assertAll();
 
 	}
 	
 	//Method for Rejected Status
-	@Parameters({ "url", "adminUsername", "adminPwd", "adminModule", "patientRegStatus" })
+	@Parameters({ "pUrl", "aUname", "aPwd","patientRejectedRegStatus" })
 	@Test(description="Changing status to Rejected")  
-        public void rejectedRegistrationVerification(String url, String adminUsername, String adminPwd, String adminModule,
-    			String patientRegStatus)throws InterruptedException {
+        public void rejectedRegistrationVerification(String pUrl, String aUname, String aPwd, String patientRejectedRegStatus
+    			)throws InterruptedException {
 		SoftAssert sa = new SoftAssert();
 		RegisterPage newPatient = new RegisterPage(driver);
 		UsersPage patientStatus = new UsersPage(driver);
 		LoginPage pLogin = new LoginPage(driver);
 
 		// Open Application and click on RegisterButton
-		boolean result = newPatient.navigateToRegisterpage(url);
+		boolean result = newPatient.navigateToRegisterpage(pUrl);
 		sa.assertTrue(result);
 
 		// enter data on Register page and this method will return patient ssn ,Name, username,pwd
@@ -121,11 +121,11 @@ public class RegistrationStatus extends BaseClass {
 		sa.assertTrue(result1);
 
 		// logging into admin module
-		boolean result2 = patientStatus.adminLogin(adminUsername, adminPwd);
+		boolean result2 = patientStatus.adminLogin(aUname, aPwd);
 		sa.assertTrue(result2);
 
 		// navigate to Users tab of admin module
-		boolean result3 = patientStatus.navigateToAdminModule(adminModule);
+		boolean result3 = patientStatus.navigateToAdminModule("Users");
 		sa.assertTrue(result3);
 
 		// Select new patient by name and SSN
@@ -133,7 +133,7 @@ public class RegistrationStatus extends BaseClass {
 		sa.assertTrue(result4);
 
 		// Changing Status to Accepted
-		boolean result5 = patientStatus.patientStatusChange(patientRegStatus);
+		boolean result5 = patientStatus.patientStatusChange(patientRejectedRegStatus);
 		sa.assertTrue(result5);
 
 		// Clicking on Submit button to save
@@ -145,7 +145,7 @@ public class RegistrationStatus extends BaseClass {
 		sa.assertTrue(result7);
 		
 		//Verify new patient login and rejected message after login
-		boolean result8 = pLogin.patientStatusRejectedLoginVerification(url, patientUserName, patientPwd);
+		boolean result8 = pLogin.patientStatusRejectedLoginVerification(pUrl, patientUserName, patientPwd);
 		sa.assertTrue(result8);
 		sa.assertAll();
 
@@ -153,17 +153,17 @@ public class RegistrationStatus extends BaseClass {
 	
 	//Method for Pending status
 	
-	@Parameters({ "url", "adminUsername", "adminPwd", "adminModule", "patientRegStatus" })
+	@Parameters({ "pUrl", "aUname", "aPwd","patientPendingRegStatus" })
 	@Test(description="Changing status to Pending")  
-        public void pendingRegistrationVerification(String url, String adminUsername, String adminPwd, String adminModule,
-    			String patientRegStatus)throws InterruptedException {
+        public void pendingRegistrationVerification(String pUrl, String aUname, String aPwd,String patientPendingRegStatus 
+    			)throws InterruptedException {
 		SoftAssert sa = new SoftAssert();
 		RegisterPage newPatient = new RegisterPage(driver);
 		UsersPage patientStatus = new UsersPage(driver);
 		LoginPage pLogin = new LoginPage(driver);
 
 		// Open Application and click on RegisterButton
-		boolean result = newPatient.navigateToRegisterpage(url);
+		boolean result = newPatient.navigateToRegisterpage(pUrl);
 		sa.assertTrue(result);
 
 		// enter data on Register page and this method will return patient ssn ,Name, username,pwd
@@ -185,11 +185,11 @@ public class RegistrationStatus extends BaseClass {
 		sa.assertTrue(result1);
 
 		// logging into admin module
-		boolean result2 = patientStatus.adminLogin(adminUsername, adminPwd);
+		boolean result2 = patientStatus.adminLogin(aUname, aPwd);
 		sa.assertTrue(result2);
 
 		// navigate to Users tab of admin module
-		boolean result3 = patientStatus.navigateToAdminModule(adminModule);
+		boolean result3 = patientStatus.navigateToAdminModule("Users");
 		sa.assertTrue(result3);
 
 		// Select new patient by name and SSN
@@ -197,7 +197,7 @@ public class RegistrationStatus extends BaseClass {
 		sa.assertTrue(result4);
 
 		// Changing Status to Accepted
-		boolean result5 = patientStatus.patientStatusChange(patientRegStatus);
+		boolean result5 = patientStatus.patientStatusChange(patientPendingRegStatus);
 		sa.assertTrue(result5);
 
 		// Clicking on Submit button to save
@@ -209,7 +209,7 @@ public class RegistrationStatus extends BaseClass {
 		sa.assertTrue(result7);
 		
 		//Verify new Patient login and pending message after login
-		boolean result8 = pLogin.patientStatusPendingLoginVerification(url, patientUserName, patientPwd);
+		boolean result8 = pLogin.patientStatusPendingLoginVerification(pUrl, patientUserName, patientPwd);
 		sa.assertTrue(result8);
 		sa.assertAll();
 		
