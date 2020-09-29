@@ -3,8 +3,8 @@
 <suite name="Suite" verbose="5">
 	<test name="Test">
 		 
-			<parameter name="pUname" value ="ria1"></parameter>
-			<parameter name="pPwd" value= "Ria12345"></parameter>
+			<parameter name="pUname" value ="XTESTX4912"></parameter>
+			<parameter name="pPwd" value= "XTest!123456"></parameter>
 			<parameter name="pUrl"
 				value="http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php"></parameter>
 			<parameter name="aUname" value="Thomas_444"></parameter>
@@ -15,8 +15,8 @@
 			<parameter name="icdCode" value="400"></parameter>
 			<parameter name="cptCode" value="402"></parameter>
 			<parameter name="insuranceCompany" value="Atena"></parameter>
-			<parameter name="ssn" value="230001345"></parameter>
-            <parameter name="apptDate" value="11/03/2019"></parameter>
+			<parameter name="ssn" value="364556983"></parameter>
+            <parameter name="apptDate" value="09/08/2020"></parameter>
             <parameter name="service" value="blood work"></parameter>
             <parameter name="fees" value="100"></parameter>
             <parameter name = "contactReason"  value ="Appointmnet1"></parameter>

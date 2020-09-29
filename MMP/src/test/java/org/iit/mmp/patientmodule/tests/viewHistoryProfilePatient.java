@@ -7,16 +7,18 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class viewHistoryProfilePatient extends BaseClass {
-
+    //Open Patient Module
+	//Navigate to patient Profile
 	@BeforeMethod
 	public void openApp() {
 		MMPHelperClass p = new MMPHelperClass(driver);
-		p.patientLogin("ria1", "Ria12345",
+		p.patientLogin("XTESTX4912", "XTest!123456",
 				"http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
 		p.navigateToModule("Profile");
 
 	}
-
+    //Calling method to verify total appt 
+	
 	@Test
 	public void patientTotalAppt() throws InterruptedException {
 		ProfileViewHistoryPage pp = new ProfileViewHistoryPage(driver);
@@ -24,15 +26,15 @@ public class viewHistoryProfilePatient extends BaseClass {
 		System.out.println(totalAppt);
 
 	}
-
+    //Calling Method to verify past appt
 	@Test
 	public void patientApptDetails() throws InterruptedException {
 		ProfileViewHistoryPage p = new ProfileViewHistoryPage(driver);
-		String apptDetails = p.patientApptDetailsValidation("yyy", "9/16/2020", "10Am", "Charlie");
+		String apptDetails = p.patientApptDetailsValidation("Not Good", "9/15/2021", "12Pm", "Beth");
 		System.out.println(apptDetails);
 
 	}
-
+    //Method to verify past prescription
 	@Test
 	public void patientPrescription() throws InterruptedException {
 		ProfileViewHistoryPage p = new ProfileViewHistoryPage(driver);

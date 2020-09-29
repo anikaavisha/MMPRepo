@@ -24,7 +24,7 @@ public class ScheduleApptPatient extends BaseClass{
 	MMPHelperClass lp =new MMPHelperClass(driver);
 	ScheduleApptPage sap = new  ScheduleApptPage(driver);
 	//Login
-	lp.patientLogin("ria1","Ria12345","http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+	lp.patientLogin("XTESTX4912","XTest!123456","http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
 	//Navigate to Schedule Appt page
 	lp.navigateToModule("Schedule Appointment");
 	//BOOK Appt and Store data in HashMap

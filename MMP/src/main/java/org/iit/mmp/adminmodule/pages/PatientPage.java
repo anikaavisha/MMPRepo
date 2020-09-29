@@ -7,6 +7,7 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
 
+import org.iit.mmp.helper.MMPHelperClass;
 import org.iit.util.ApplicationLibraryClass;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
@@ -34,7 +35,8 @@ public class PatientPage {
 	By prescriptionNameName = By.name("p_name");
 	By prescriptionDescriptionName = By.name("p_desc");
 	By pressubmitButtonXpath = By.xpath("//input[@type='submit']");
-	By createFeeXpath = By.xpath("//input[@value='Create Fee']");
+	By createFeeXpath = By.xpath("//p[3]//a[1]//input[1][@value='Create Fee']");
+	By aptDate =By.id("app_date");
 	By serviceID = By.id("service");
 	By feeXpath = By.xpath("//div[@id='show']//input[@class='form-control']");
 	By feesSubmitXpath = By.xpath("//input[@type='submit']");
@@ -108,15 +110,20 @@ public class PatientPage {
 
 	// Method to Add Fees by Admin
 	public boolean addFees(String apptDate, String service, String expectedFees) throws InterruptedException {
-		Thread.sleep(10000);
-		driver.findElement(createFeeXpath).click();
-		Select select1 = new Select(driver.findElement(selectApptID));
+        MMPHelperClass helperObject = new MMPHelperClass(driver);    
+//        WebElement e = helperObject.waitingForElementToBeVisible(createFeeXpath);
+//        e.click();
+	
+        Thread.sleep(10000);
+        driver.findElement(createFeeXpath).click();
+		Select select1 = new Select(driver.findElement(aptDate));
 		select1.selectByVisibleText(apptDate);
 		Select select2 = new Select(driver.findElement(serviceID));
 		select2.selectByVisibleText(service);
+		WebElement e1 = helperObject.waitingForElementToBeVisible(feeXpath);
 		//Thread.sleep(10000);
-	    String actualFees = driver.findElement(feeXpath).getAttribute("value");
-		Assert.assertEquals(actualFees, expectedFees);
+	    String actualFees = e1.getAttribute("value");
+	    Assert.assertEquals(actualFees, expectedFees);
 		driver.findElement(feesSubmitXpath).click();
 		return true;
 

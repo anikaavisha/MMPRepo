@@ -45,10 +45,14 @@ public class MMPHelperClass {
 		elementFound.click();
 
 	}
-	public void waitingForElementToBeVisible(By locator){
-	WebDriverWait wait = new WebDriverWait(driver,100);
+	public WebElement waitingForElementToBeVisible(By locator){
+	WebDriverWait wait = new WebDriverWait(driver,200);
 	//wait until element is visible
-	wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	WebElement webelement= wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+	//System.out.println(webelement.isDisplayed());
+	return webelement;
+	
+	
 	}
 
 		

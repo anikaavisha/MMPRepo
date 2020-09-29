@@ -5,13 +5,13 @@
   <parameter name = "aUrl"  value="http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/"> </parameter>
   <parameter name = "aUname"  value="Thomas_444" > </parameter>
   <parameter name = "aPwd"  value="Edison_444" > </parameter>
-  <parameter name = "ssn"  value="230001345" > </parameter>
-  <parameter name="apptDate" value="06/15/2019"></parameter>
+  <parameter name = "ssn"  value="364556983" > </parameter>
+  <parameter name="apptDate" value="09/08/2020"></parameter>
   <parameter name = "presName" value="ThyroidPres"></parameter>
   <parameter name = "presDes" value="Take twice in a day."></parameter>
   <parameter name = "pUrl"  value="http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php"></parameter>
-  <parameter name = "pUname"  value="ria1" > </parameter>
-  <parameter name = "pPwd"  value="Ria12345" > </parameter>
+  <parameter name = "pUname"  value="XTESTX4912" > </parameter>
+  <parameter name = "pPwd"  value="XTest!123456" > </parameter>
   <classes>
   <class name = "org.iit.mmp.adminmodule.tests.PrescriptionVerification"/>
   </classes>
