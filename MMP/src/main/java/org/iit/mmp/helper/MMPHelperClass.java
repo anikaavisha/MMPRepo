@@ -45,26 +45,33 @@ public class MMPHelperClass {
 		elementFound.click();
 
 	}
+	//Method -  Waiting for element to be visible and this will return element which can be used to send keys or click
 	public WebElement waitingForElementToBeVisible(By locator){
 	WebDriverWait wait = new WebDriverWait(driver,200);
 	//wait until element is visible
 	WebElement webelement= wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-	//System.out.println(webelement.isDisplayed());
 	return webelement;
 	
 	
 	}
-
-		
-		
-		
+	//Method - Waiting for next Page Title to be displayed before locating any element
+	public boolean explicitWaitForTitle(String title){
+	WebDriverWait wait = new WebDriverWait(driver,100);
+	return wait.until(ExpectedConditions.titleContains(title));
+}
+    //Method - Waiting for the text to be displayed
+	public boolean explicitWaitFortext(By locator , String text ){
+		WebDriverWait wait = new WebDriverWait(driver,60);
+		boolean textDisplayed =  wait.until(ExpectedConditions.textToBePresentInElementLocated(locator ,text));
+		return textDisplayed;
+	}
 	
-	
+	//Navigating to Patient Module with wait
 	public void navigateToModuleWithWait(String module) {
-		String moduleXpath = moduleName.replace("%module%", module);
-		WebDriverWait wait = new WebDriverWait(driver, 10000);
-		WebElement elementFound = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(moduleXpath))));
-		elementFound.click();
+	String moduleXpath = moduleName.replace("%module%", module);
+	WebDriverWait wait = new WebDriverWait(driver, 10000);
+	WebElement elementFound = wait.until(ExpectedConditions.elementToBeClickable(driver.findElement(By.xpath(moduleXpath))));
+	elementFound.click();
 
 	}
 
