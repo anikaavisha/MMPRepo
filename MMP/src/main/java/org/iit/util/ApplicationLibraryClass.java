@@ -1,5 +1,10 @@
 package org.iit.util;
 
+import java.awt.AWTException;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
@@ -20,7 +25,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 public class ApplicationLibraryClass {
 
 	// Method - Reading Excel with xls extension
-	public String[][] readingXlsFile(String xlsFilePath) throws IOException {
+	public static String[][] readingXlsFile(String xlsFilePath) throws IOException {
 		File file = new File(xlsFilePath);
 		FileInputStream excelFile = new FileInputStream(file);
 		HSSFWorkbook wb = new HSSFWorkbook(excelFile);
@@ -44,7 +49,7 @@ public class ApplicationLibraryClass {
 	}
 
 	// Method- Reading Excel with xlsx extension
-	public String[][] readingXlsxFile(String xlsxFilePath) throws IOException {
+	public static String[][] readingXlsxFile(String xlsxFilePath) throws IOException {
 		File file = new File(xlsxFilePath);
 		FileInputStream excelFile = new FileInputStream(file);
 		XSSFWorkbook wb = new XSSFWorkbook(excelFile);
@@ -68,7 +73,7 @@ public class ApplicationLibraryClass {
 	}
 
 	// Method- Reading Text File
-	public String readingTextFile(String filePath) {
+	public static String readingTextFile(String filePath) {
 
 		FileReader fr = null;
 
@@ -123,7 +128,7 @@ public class ApplicationLibraryClass {
 		return pastDate;
 
 	}
-
+//method to get future date
 	public static String futureDate() {
 		Random random = new Random();
 
@@ -137,5 +142,24 @@ public class ApplicationLibraryClass {
 		return pastDate;
 
 	}
+	 public static boolean uploadingFile(String filePath) throws AWTException{
+		    //"C:\\Users\\ektaj\\RepTest.txt" -File Path syntax
+		    // copying file path on the clip board
+		    StringSelection clipBoardContent = new StringSelection(filePath);
+		    Toolkit.getDefaultToolkit().getSystemClipboard().setContents(clipBoardContent, null);
+			
+		    //Thread.sleep(10000)
+		    //pasting file path on the window and press Enter
+			Robot robot = new Robot();
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyPress(KeyEvent.VK_V);
+
+			robot.keyPress(KeyEvent.VK_CONTROL);
+			robot.keyRelease(KeyEvent.VK_V);
+
+			robot.keyPress(KeyEvent.VK_ENTER);
+			robot.keyRelease(KeyEvent.VK_ENTER);
+		    return true;
+		  }
 
 }
