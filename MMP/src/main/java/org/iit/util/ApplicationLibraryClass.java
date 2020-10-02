@@ -76,9 +76,9 @@ public class ApplicationLibraryClass {
 	public static String readingTextFile(String filePath) {
 
 		FileReader fr = null;
-
-		BufferedReader br = null;
-		String str = "";
+        BufferedReader br = null;
+		
+        String str = "";
 		String txt = "";
 
 		try {
@@ -142,7 +142,8 @@ public class ApplicationLibraryClass {
 		return pastDate;
 
 	}
-	 public static boolean uploadingFile(String filePath) throws AWTException{
+	 //Method to upload file
+	public static boolean uploadingFile(String filePath) throws AWTException{
 		    //"C:\\Users\\ektaj\\RepTest.txt" -File Path syntax
 		    // copying file path on the clip board
 		    StringSelection clipBoardContent = new StringSelection(filePath);

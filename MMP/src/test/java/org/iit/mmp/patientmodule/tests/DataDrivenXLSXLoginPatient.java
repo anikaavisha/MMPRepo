@@ -6,6 +6,7 @@ import java.util.concurrent.TimeUnit;
 
 import org.iit.mmp.patientmodule.pages.LoginPage;
 import org.iit.util.ApplicationLibraryClass;
+import org.iit.util.BaseClass;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.annotations.AfterClass;
@@ -18,31 +19,22 @@ import org.testng.annotations.Test;
 import io.github.bonigarcia.wdm.WebDriverManager;
 
 
-public class DataDrivenXLSXLoginPatient  {
-	public WebDriver driver;
+public class DataDrivenXLSXLoginPatient extends BaseClass  {
 	
-	/*@BeforeClass
-	public void openBrowser() {
-		WebDriverManager.chromedriver().setup();
-		// System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-		driver = new ChromeDriver();
-		
-	}*/
+	
+	
 
 	@BeforeMethod
-	public void openApp() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-		driver.get("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
-		driver.manage().window().maximize();
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+	public void openPatientLogin() {
+		LoginPage lpObject = new LoginPage(driver);
+		lpObject.openApp("http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
+		}
 
-	}
+	
 
 	@DataProvider(name = "DP")
 	public String[][] gettingdata() throws IOException {
-		ApplicationLibraryClass r = new ApplicationLibraryClass();
-		String[][] excelD = r.readingXlsxFile("ReadingXLSXFile.xlsx");
+		String[][] excelD = ApplicationLibraryClass.readingXlsxFile(System.getProperty("user.dir")+"//src//test//resource//TestData//ReadingXLSXFile.xlsx");
 		return excelD;
 
 	}
@@ -55,10 +47,7 @@ public class DataDrivenXLSXLoginPatient  {
 
 	}
 	
-	@AfterMethod
-	public void closeApp(){
-		driver.close();
-	}
+	
 
 	
 }

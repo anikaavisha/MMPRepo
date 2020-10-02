@@ -20,14 +20,15 @@ public class InformationVerification extends BaseClass {
 	public void verifyInfo() {
 		MMPHelperClass lin = new MMPHelperClass(driver);
 		InformationPage ip = new InformationPage(driver);
-		ApplicationLibraryClass tfr = new ApplicationLibraryClass();
 		lin.patientLogin("ria1", "Ria12345",
 				"http://96.84.175.78/MMP-Release2-Integrated-Build.6.8.000/portal/login.php");
 		lin.navigateToModule("Information");
 		String actualText = ip.actualTextMethod();
-		String expectedText = tfr.readingTextFile(
-				System.getProperty("user.dir") + "\\src\\text\\resource\\testData\\MMPTextVerificationFile.txt");
-		Assert.assertEquals(actualText, expectedText);
+		System.out.println("Actual Text:: "+ actualText);
+		String expectedText = ApplicationLibraryClass.readingTextFile(
+				System.getProperty("user.dir")+"\\src\\test\\resource\\TestData\\InformationTextPatientModule.txt");
+		System.out.println("Expected Text:: "+expectedText);
+		Assert.assertEquals(actualText.trim(), expectedText.trim());
 
 	}
 }
